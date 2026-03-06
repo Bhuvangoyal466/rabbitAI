@@ -31,9 +31,13 @@ from ingest import process_repository, get_repo_stats, safe_rmtree
 
 # GOOGLE GEMINI API KEY
 # Get your free API key from: https://aistudio.google.com/apikey
-os.environ["GOOGLE_API_KEY"] = (
-    "AIzaSyCE3R_zh2dTrk2ersaInCKn1CYFW6HkFgY"  # Replace with your actual Gemini API key
-)
+# Use Streamlit secrets in production (Streamlit Cloud)
+# Use environment variable for local development
+if "GOOGLE_API_KEY" in st.secrets:
+    os.environ["GOOGLE_API_KEY"] = st.secrets["GOOGLE_API_KEY"]
+elif "GOOGLE_API_KEY" not in os.environ:
+    # Fallback for local development only
+    os.environ["GOOGLE_API_KEY"] = "AIzaSyCE3R_zh2dTrk2ersaInCKn1CYFW6HkFgY"
 
 # Page Configuration
 st.set_page_config(

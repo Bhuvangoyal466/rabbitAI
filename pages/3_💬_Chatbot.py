@@ -32,7 +32,7 @@ from ingest import process_repository, get_repo_stats, safe_rmtree
 # GOOGLE GEMINI API KEY
 # Get your free API key from: https://aistudio.google.com/apikey
 os.environ["GOOGLE_API_KEY"] = (
-    "AIzaSyCE3R_zh2dTrk2ersaInCKn1CYFW6HkFgY"  # Replace with your actual Gemini API key
+    ""  # Replace with your actual Gemini API key
 )
 
 # Page Configuration
